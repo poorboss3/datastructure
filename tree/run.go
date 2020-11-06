@@ -1,11 +1,12 @@
 package main
 
 import (
+	avltree "arithmeticand/tree/avltree"
 	btree "arithmeticand/tree/binarysearchtree"
-	"fmt"
 )
 
 var bst btree.ItemBinarySearchTree
+var avlt avltree.AvlTree
 
 func fillTree(bst *btree.ItemBinarySearchTree) {
 	bst.Insert(8, "8")
@@ -20,19 +21,13 @@ func fillTree(bst *btree.ItemBinarySearchTree) {
 	bst.Insert(9, "9")
 }
 
+func fillAvlTree(avlt *avltree.AvlTree) {
+	for i := 1; i < 20; i++ {
+		avlt.Insert(i, i)
+	}
+}
+
 func main() {
-	fillTree(&bst)
-	var pre, in, post []string
-	bst.PreorderTraverse(func(i btree.Item) {
-		pre = append(pre, fmt.Sprintf("%s", i))
-	})
-	bst.InorderTraverse(func(i btree.Item) {
-		in = append(in, fmt.Sprintf("%s", i))
-	})
-	bst.PostorderTraverse(func(i btree.Item) {
-		post = append(post, fmt.Sprintf("%s", i))
-	})
-	fmt.Printf("pre order is:%v\n", pre)
-	fmt.Printf("in order is:%v\n", in)
-	fmt.Printf("post order is:%v\n", post)
+	fillAvlTree(&avlt)
+	avlt.String()
 }
