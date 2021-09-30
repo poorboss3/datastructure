@@ -1,11 +1,8 @@
 package main
 
-import (
-	"arithmeticand/heap"
-	"fmt"
-)
-
 //array "arithmeticand/array"
+
+import "arithmeticand/weichatdat"
 
 var (
 	a = b + c
@@ -20,13 +17,14 @@ func f(caller string) int {
 }
 
 func main() {
-	heap := heap.NewLeftHeap(10)
-	for _, item := range []int{5, 3, 7, 9, 2, 1, 6, 4, 8} {
-		heap = heap.Insert(item)
-	}
+	// heap := heap.NewLeftHeap(10)
+	// for _, item := range []int{5, 3, 7, 9, 2, 1, 6, 4, 8} {
+	// 	heap = heap.Insert(item)
+	// }
 
-	for i := 0; i < 9; i++ {
-		min := heap.DeleteMin()
-		fmt.Printf("%d \n", min)
-	}
+	// for i := 0; i < 9; i++ {
+	// 	min := heap.DeleteMin()
+	// 	fmt.Printf("%d \n", min)
+	// }
+	weichatdat.DatToImage("E:\\wechat\\Documents\\WeChat Files\\poorboss123\\FileStorage\\Image\\", "F:\\1111")
 }
