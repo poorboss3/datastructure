@@ -1,8 +1,11 @@
 package main
 
-//array "arithmeticand/array"
+import (
+	"arithmeticand/sort"
+	"fmt"
+)
 
-import "arithmeticand/weichatdat"
+//array "arithmeticand/array"
 
 var (
 	a = b + c
@@ -26,5 +29,6 @@ func main() {
 	// 	min := heap.DeleteMin()
 	// 	fmt.Printf("%d \n", min)
 	// }
-	weichatdat.DatToImage("E:\\wechat\\Documents\\WeChat Files\\poorboss123\\FileStorage\\Image\\", "F:\\1111")
+	fmt.Println(sort.QuickSort([]int{5, 3, 7, 9, 2, 1, 6, 4, 8}))
+
 }
