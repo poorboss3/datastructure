@@ -1,23 +1,6 @@
-package main
+package leetcode
 
-import (
-	"fmt"
-	"strconv"
-)
-
-//array "arithmeticand/array"
-
-var (
-	a = b + c
-	b = f("b")
-	c = f("c")
-	d = 3
-)
-
-func f(caller string) int {
-	d++
-	return d
-}
+import "strconv"
 
 func solveEquation(equation string) string {
 	equation = equation + "+"
@@ -86,13 +69,4 @@ func getNum(num []byte) int {
 	}
 	n, _ := strconv.ParseInt(string(num), 10, 64)
 	return int(n)
-}
-
-func main() {
-	m := make(map[int]int)
-	a := []int{1, 1, 1, 2, 2, 2}
-	for _, item := range a {
-		m[item] += item
-	}
-	fmt.Println(m)
 }
