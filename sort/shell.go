@@ -1,7 +1,5 @@
 package sort
 
-import "fmt"
-
 func ShellSort(array []int) []int {
 	if len(array) <= 1 {
 		return array
@@ -15,7 +13,6 @@ func ShellSort(array []int) []int {
 			}
 			array[j*inc] = temp
 		}
-		fmt.Println(array)
 	}
 	return array
 }
