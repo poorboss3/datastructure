@@ -25,3 +25,16 @@ func max(a int, b int) int {
 	}
 	return b
 }
+
+func min(arr []int) int {
+	if len(arr) == 0 {
+		return 0
+	}
+	min := arr[0]
+	for _, a := range arr {
+		if a < min {
+			min = a
+		}
+	}
+	return min
+}

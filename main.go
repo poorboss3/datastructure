@@ -1,8 +1,8 @@
 package main
 
 import (
-	"arithmeticand/leetcode"
 	"fmt"
+	"math"
 	"strconv"
 )
 
@@ -15,8 +15,15 @@ func getNum(num []byte) int {
 }
 
 func main() {
-	fmt.Println(leetcode.ValidateStackSequences([]int{1, 2, 3, 4, 5}, []int{4, 5, 3, 2, 1}))
-	fmt.Println(leetcode.ValidateStackSequences([]int{1, 2, 3, 4, 5}, []int{4, 3, 5, 1, 2}))
+	x := math.Inf(1)
+	switch {
+	case x > 0, x < 0:
+		fmt.Println(x)
+	case x == 0:
+		fmt.Println("0")
+	default:
+		fmt.Println("else")
+	}
 }
 
 /**
@@ -85,4 +92,54 @@ func container(array []string, target string, start, end int) bool {
 		}
 	}
 	return false
+}
+
+func trimMean(arr []int) float64 {
+	fmt.Println(len(arr))
+	sortArr := QuickSort(arr)
+	sum := 0
+	cap := int(math.Floor(float64(len(sortArr)) * 0.05))
+	for i := cap; i < len(sortArr)-cap; i++ {
+		sum += arr[i]
+	}
+	fmt.Println(sum, "/", len(arr)-cap)
+	return float64(sum) / float64((len(arr) - 2*cap))
+}
+
+func QuickSort(array []int) []int {
+	l := len(array)
+	if l <= 1 {
+		return array
+	}
+	temp := make([]int, 0)
+	pivot := findPivot(array, 0, l-1, l/2)
+	pivotValue := array[pivot]
+	i := 0
+	j := l - 2
+	array[pivot] = array[l-1]
+	array[l-1] = pivotValue
+	for i <= j {
+		if array[i] < array[l-1] {
+			i++
+		} else {
+			array[i], array[j] = array[j], array[i]
+			j--
+		}
+	}
+	array[l-1] = array[i]
+	array[i] = pivotValue
+	temp = append(temp, QuickSort(array[:i])...)
+	temp = append(temp, pivotValue)
+	temp = append(temp, QuickSort(array[i+1:])...)
+	return temp
+}
+
+func findPivot(array []int, left int, right int, center int) int {
+	if (array[left]-array[center])*(array[center]-array[right]) > 0 {
+		return center
+	} else if (array[center]-array[left])*(array[left]-array[right]) > 0 {
+		return left
+	} else {
+		return right
+	}
 }
